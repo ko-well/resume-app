@@ -3,7 +3,7 @@ import google.generativeai as genai
 
 # --- ページ設定 ---
 st.set_page_config(page_title="志望動機添削アプリ", layout="wide")
-st.title("キャリアコンサルタントAI 志望動機添削アプリ")
+st.title("キャリアコンサルタント（AI） 志望動機添削アプリ")
 st.write("求職者の情報と求人情報を入力すると、AIがプロのキャリアコンサルタント視点で志望動機を添削・作成します。")
 
 # --- 入力フォーム ---
