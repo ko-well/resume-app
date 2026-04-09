@@ -5,6 +5,7 @@ import google.generativeai as genai
 st.set_page_config(page_title="志望動機添削アプリ", layout="wide")
 st.title("キャリアコンサルタント（AI） 志望動機添削アプリ")
 st.write("求職者の情報と求人情報を入力すると、AIがプロのキャリアコンサルタント視点で志望動機を添削・作成します。")
+st.info("【使い方】完璧な文章でなくても構いません。箇条書きや思いつく言葉を入力し、一番下の「志望動機を添削する」ボタンを押してください。")
 
 # --- 入力フォーム ---
 with st.form("input_form"):
@@ -22,7 +23,7 @@ with st.form("input_form"):
 
     st.subheader("【求人票の情報】")
     job_title = st.text_input("職種")
-    emp_type = st.text_input("雇用形態（例：正社員、契約社員など）")
+    emp_type = st.selectbox("雇用形態", ["正社員", "契約社員", "派遣社員", "パート・アルバイト", "業務委託", "その他"])
     job_desc = st.text_area("仕事内容")
     requirements = st.text_area("必要な免許・資格・スキル（経験）")
 
