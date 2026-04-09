@@ -37,7 +37,7 @@ if submit_btn:
         api_key = st.secrets["GEMINI_API_KEY"]
         genai.configure(api_key=api_key)
         # 高速で高精度なモデルを指定
-        model = genai.GenerativeModel('gemini-2.5-flash')
+        model = genai.GenerativeModel('gemini-1.5-flash')
 
         # プロンプトの構築（一緒に完成させたものを埋め込みます）
         prompt = f"""
