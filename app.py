@@ -38,7 +38,7 @@ if submit_btn:
         api_key = st.secrets["GEMINI_API_KEY"]
         genai.configure(api_key=api_key)
         # 高速で高精度なモデルを指定
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        model = genai.GenerativeModel('gemini-2.5-flash')
 
         # プロンプトの構築（一緒に完成させたものを埋め込みます）
         prompt = f"""
@@ -110,4 +110,8 @@ if submit_btn:
                 st.markdown("---")
                 st.markdown(response.text)
             except Exception as e:
-                st.error(f"エラーが発生しました。APIキーが正しいか確認してください。詳細: {e}")
+                error_msg = str(e)
+                if "429" in error_msg or "Quota" in error_msg:
+                    st.error("ただいまアクセスが集中しており、AIの利用制限（1分間の回数上限）に達しています。誠に恐れ入りますが、1分ほど待ってから再度「添削する」ボタンを押してください。")
+                else:
+                    st.error(f"予期せぬエラーが発生しました。詳細: {e}")
