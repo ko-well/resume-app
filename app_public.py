@@ -13,6 +13,13 @@ h1, h2, h3, h4, h5, h6 {
     color: #1A5276 !important;
 }
 
+/* 入力項目のラベル（年齢，性別，職歴など）の文字サイズと色を変更 */
+label p, [data-testid="stWidgetLabel"] p {
+    font-size: 18px !important;
+    color: #2874A6 !important; /* 誠実さを感じる少し明るめのブルー */
+    font-weight: bold !important;
+}
+
 /* 添削ボタンの中央配置とサイズ・色変更（温かみと前向きさを表すオレンジ） */
 [data-testid="stFormSubmitButton"] {
     display: flex;
