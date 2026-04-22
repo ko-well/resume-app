@@ -93,11 +93,15 @@ with st.form("input_form"):
     job_desc = st.text_area("仕事内容")
     requirements = st.text_area("必要な免許・資格・スキル（経験）")
 
+    st.markdown("---")
+    agreement = st.checkbox("⚠️【確認】AIの文章はそのまま使わず，面接で語れるよう自分の言葉で修正して使用します。")
     submit_btn = st.form_submit_button("志望動機を添削する")
 
 # --- 実行処理 ---
 if submit_btn:
-    if not api_key:
+    if not agreement:
+        st.error("⚠️ 添削を実行するには，上のチェックボックス（確認事項）にチェックを入れてください。")
+    elif not api_key:
         st.error("エラー：左側のサイドバーに「APIキー」を入力してください。（取得方法は上部の「🔰 はじめてご利用の方へ」をご参照ください）")
     elif not history or not job_title:
         st.warning("「簡単な職歴」と求人の「職種」は最低限入力してください。")
